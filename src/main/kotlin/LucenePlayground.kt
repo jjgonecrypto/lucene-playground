@@ -36,9 +36,9 @@ fun main(args: Array<String>) {
 
             do {
                 print("Lucene Query: ")
-                val input = readLine()
+                val input = readLine()!!
 
-                if (input!!.trim() == "") break
+                if (input == "") break
 
                 //result:(+Voilaton~ -No)
                 val results = inMemoryLuceneIndex.searchIndex("", input, MAX_RESULTS)

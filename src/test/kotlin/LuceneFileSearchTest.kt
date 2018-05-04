@@ -19,7 +19,7 @@ class LuceneFileSearchTest {
 
         luceneFileSearch.addFileToIndex(dataPath)
 
-        val docs = luceneFileSearch.searchFiles("contents", "consectetur +scelerisques")
+        val docs = luceneFileSearch.searchFiles("contents", "consectetur")
 
         Assert.assertEquals("file1.txt", docs!![0].get("filename"))
     }
