@@ -1,6 +1,6 @@
 # Lucene Playground
 
-Application to tinker with Lucene and MongoDB. Uses Kotlin and Gradle. 
+Application to tinker with Lucene and MongoDB. Uses Kotlin and Gradle.
 
 ## Requirements
 
@@ -12,8 +12,19 @@ JDK 8, Gradle, MongoDB.
 
 `brew install kotlin`
 
-## To Run
+Have a mongodb running on 27017 `brew install mongodb && mongod`. Preload db "inspections" with inspection data as follows:
 
-Have a mongodb running on 27017. Preload db "something" with inspection data. `mongoimport --db test --collection something --file $(curl https://raw.githubusercontent.com/ozlerhakan/mongodb-json-files/master/datasets/city_inspections.json -o city_inspections.json)`
+```
+curl https://raw.githubusercontent.com/ozlerhakan/mongodb-json-files/master/datasets/city_inspections.json -O
+mongoimport --db test --collection inspections --file city_inspections.json
+```
 
-Run via `TERM=dumb gradle` (use `dumb` to prevent noisy progress bar from bothering the CLI)
+## Run app
+
+`TERM=dumb gradle`
+
+> use env variable `TERM=dumb` to prevent noisy progress bar from bothering the CLI
+
+This loads up 100 inspection documents into Lucene and listens for lucene queries.
+
+Try `result:"No Violation" AND business_name:Constructon~`

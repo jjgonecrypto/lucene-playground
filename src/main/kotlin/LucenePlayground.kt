@@ -12,7 +12,7 @@ fun main(args: Array<String>) {
 
     val latch = CountDownLatch(1)
 
-    val mongoClient = MongoClients.create("mongodb://localhost:27017/?replicaSet=mms")
+    val mongoClient = MongoClients.create("mongodb://localhost:27017")
 
     val database = mongoClient.getDatabase("test")
 

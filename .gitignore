@@ -4,3 +4,8 @@
 /index
 /gradle
 /out
+bin/*
+.classpath
+.settings
+.vscode
+.project
